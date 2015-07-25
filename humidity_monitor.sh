@@ -8,6 +8,6 @@
 # mkdir logs
 # sudo crontab -e
 # and enter the following line
-# @reboot sh /home/pi/humidity_display.sh >/home/pi/logs/cronlog 2>&1
-
-sudo python /home/pi/humidity_monitor.py
+# @reboot sh /home/pi/humidity-monitor/humidity_monitor.sh >/home/pi/logs/cronlog 2>&1
+cd /home/pi/humidity-monitor
+sudo python /home/pi/humidity-monitor/humidity_monitor.py
