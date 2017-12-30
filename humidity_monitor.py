@@ -38,13 +38,13 @@ tempVar = 0
 humidVar = 0
 
 #upload to ubidots every 6 measurements (free plan compatible)
-uploadEvery =6
+uploadEvery =10
 iterationCounter = 0
 
 # Load default font.
-graphFont = ImageFont.truetype('/usr/share/fonts/truetype/droid/DroidSans.ttf', 10)
-timeFont = ImageFont.truetype('/usr/share/fonts/truetype/droid/DroidSans.ttf', 14)
-humidityFont = ImageFont.truetype('/usr/share/fonts/truetype/droid/DroidSans.ttf', 22)
+graphFont = ImageFont.truetype('DroidSans.ttf', 10)
+timeFont = ImageFont.truetype('DroidSans.ttf', 14)
+humidityFont = ImageFont.truetype('DroidSans.ttf', 22)
 
 lastVals = []
 graphVals = []
@@ -59,11 +59,11 @@ def loadApi():
 	global api, tempVar, humidVar
 	try:
 		#Create an "API" object
-		api = ApiClient("xxxxxxxxxxxxxxxxxxxxxxxxxx")
+		api = ApiClient(token="your_api_client_token_here")
 	
 		#Create a "Variable" object
-		tempVar = api.get_variable("xxxxxxxxxxxxxxxxxxxxxxx")
-		humidVar = api.get_variable("xxxxxxxxxxxxxxxxxxxxxxx")
+		tempVar = api.get_variable("your_variable_id")
+		humidVar = api.get_variable("your_variable_id")
 	except:
 		e = sys.exc_info()[0]
 		print "Loading ubidots api failed with exception",e,"... will retry later"
@@ -116,7 +116,7 @@ while True:
 	disp.display()
 	
 	# sleep for ten seconds
-	sleep(10)
+	sleep(6)
 	
 	# ...and now show the humidity graph
 	
@@ -154,6 +154,6 @@ while True:
 	disp.display()
 	
 	# sleep for another ten seconds
-	sleep(10)
+	sleep(6)
 	
 
